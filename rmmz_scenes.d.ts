@@ -1,9 +1,12 @@
 // Type definitions for rmmz_scenes.js
-declare interface Scene_Base {
-	new (): Scene_Base;
+declare interface Scene_Base
+{
+	new(): Scene_Base;
 }
-declare interface Scene_Boot {
-	new ();
+
+declare interface Scene_Boot
+{
+	new();
 	initialize(): void;
 	create(): void;
 	isReady(): boolean;
@@ -21,8 +24,10 @@ declare interface Scene_Boot {
 	updateDocumentTitle(): void;
 	checkPlayerLocation(): void;
 }
-declare interface Scene_Title {
-	new ();
+
+declare interface Scene_Title
+{
+	new();
 	initialize(): void;
 	create(): void;
 	start(): void;
@@ -40,11 +45,15 @@ declare interface Scene_Title {
 	commandOptions(): void;
 	playTitleMusic(): void;
 }
-declare interface Scene_Message {
-	new (): Scene_Message;
+
+declare interface Scene_Message
+{
+	new(): Scene_Message;
 }
-declare interface Scene_Map {
-	new ();
+
+declare interface Scene_Map
+{
+	new();
 	initialize(): void;
 	create(): void;
 	isReady(): /* !this._mapLoaded */ any;
@@ -96,25 +105,29 @@ declare interface Scene_Map {
 	startEncounterEffect(): void;
 	updateEncounterEffect(): void;
 	snapForBattleBackground(): void;
-	startFlashForEncounter(duration : number): void;
+	startFlashForEncounter(duration: number): void;
 	encounterEffectSpeed(): number;
-	_waitCount : number;
-	_encounterEffectDuration : number;
-	_mapLoaded : boolean;
-	_touchCount : number;
-	_menuEnabled : boolean;
-	_transfer : boolean;
-	_lastMapWasNull : boolean;
-	menuCalling : boolean;
-	_spriteset : /*no type*/{};
-	_mapNameWindow : /*no type*/{};
-	_menuButton : /*no type*/{};
+	_waitCount: number;
+	_encounterEffectDuration: number;
+	_mapLoaded: boolean;
+	_touchCount: number;
+	_menuEnabled: boolean;
+	_transfer: boolean;
+	_lastMapWasNull: boolean;
+	menuCalling: boolean;
+	_spriteset: /*no type*/{};
+	_mapNameWindow: /*no type*/{};
+	_menuButton: /*no type*/{};
 }
-declare interface Scene_MenuBase {
-	new (): Scene_MenuBase;
+
+declare interface Scene_MenuBase
+{
+	new(): Scene_MenuBase;
 }
-declare interface Scene_Menu {
-	new ();
+
+declare interface Scene_Menu
+{
+	new();
 	initialize(): void;
 	helpAreaHeight(): number;
 	create(): void;
@@ -136,11 +149,15 @@ declare interface Scene_Menu {
 	onFormationOk(): void;
 	onFormationCancel(): void;
 }
-declare interface Scene_ItemBase {
-	new (): Scene_ItemBase;
+
+declare interface Scene_ItemBase
+{
+	new(): Scene_ItemBase;
 }
-declare interface Scene_Item {
-	new ();
+
+declare interface Scene_Item
+{
+	new();
 	initialize(): void;
 	create(): void;
 	createCategoryWindow(): void;
@@ -154,8 +171,10 @@ declare interface Scene_Item {
 	playSeForItem(): void;
 	useItem(): void;
 }
-declare interface Scene_Skill {
-	new ();
+
+declare interface Scene_Skill
+{
+	new();
 	initialize(): void;
 	create(): void;
 	start(): void;
@@ -176,8 +195,10 @@ declare interface Scene_Skill {
 	useItem(): void;
 	onActorChange(): void;
 }
-declare interface Scene_Equip {
-	new ();
+
+declare interface Scene_Equip
+{
+	new();
 	initialize(): void;
 	create(): void;
 	createStatusWindow(): void;
@@ -203,8 +224,10 @@ declare interface Scene_Equip {
 	onActorChange(): void;
 	hideItemWindow(): void;
 }
-declare interface Scene_Status {
-	new ();
+
+declare interface Scene_Status
+{
+	new();
 	initialize(): void;
 	create(): void;
 	helpAreaHeight(): number;
@@ -224,8 +247,10 @@ declare interface Scene_Status {
 	refreshActor(): void;
 	onActorChange(): void;
 }
-declare interface Scene_Options {
-	new ();
+
+declare interface Scene_Options
+{
+	new();
 	initialize(): void;
 	create(): void;
 	terminate(): void;
@@ -234,35 +259,43 @@ declare interface Scene_Options {
 	maxCommands(): number;
 	maxVisibleCommands(): number;
 }
-declare interface Scene_File {
-	new (): Scene_File;
+
+declare interface Scene_File
+{
+	new(): Scene_File;
 }
-declare interface Scene_Save {
-	new ();
+
+declare interface Scene_Save
+{
+	new();
 	initialize(): void;
 	mode(): string;
 	helpWindowText(): void;
 	firstSavefileId(): number;
 	onSavefileOk(): void;
-	executeSave(savefileId : any): void;
+	executeSave(savefileId: any): void;
 	onSaveSuccess(): void;
 	onSaveFailure(): void;
 }
-declare interface Scene_Load {
-	new ();
+
+declare interface Scene_Load
+{
+	new();
 	initialize(): void;
 	terminate(): void;
 	mode(): string;
 	helpWindowText(): void;
 	firstSavefileId(): number;
 	onSavefileOk(): void;
-	executeLoad(savefileId : any): void;
+	executeLoad(savefileId: any): void;
 	onLoadSuccess(): void;
 	onLoadFailure(): void;
 	reloadMapIfUpdated(): void;
 }
-declare interface Scene_GameEnd {
-	new ();
+
+declare interface Scene_GameEnd
+{
+	new();
 	initialize(): void;
 	create(): void;
 	stop(): void;
@@ -271,10 +304,12 @@ declare interface Scene_GameEnd {
 	commandWindowRect(): void;
 	commandToTitle(): void;
 }
-declare interface Scene_Shop {
-	new ();
+
+declare interface Scene_Shop
+{
+	new();
 	initialize(): void;
-	prepare(goods : any, purchaseOnly : any): void;
+	prepare(goods: any, purchaseOnly: any): void;
 	create(): void;
 	createGoldWindow(): void;
 	goldWindowRect(): void;
@@ -305,8 +340,8 @@ declare interface Scene_Shop {
 	onSellCancel(): void;
 	onNumberOk(): void;
 	onNumberCancel(): void;
-	doBuy(number : number): void;
-	doSell(number : number): void;
+	doBuy(number: number): void;
+	doSell(number: number): void;
 	endNumberInput(): void;
 	maxBuy(): number;
 	maxSell(): number;
@@ -315,10 +350,12 @@ declare interface Scene_Shop {
 	buyingPrice(): void;
 	sellingPrice(): number;
 }
-declare interface Scene_Name {
-	new ();
+
+declare interface Scene_Name
+{
+	new();
 	initialize(): void;
-	prepare(actorId : any, maxLength : any): void;
+	prepare(actorId: any, maxLength: any): void;
 	create(): void;
 	start(): void;
 	createEditWindow(): void;
@@ -327,8 +364,10 @@ declare interface Scene_Name {
 	inputWindowRect(): void;
 	onInputOk(): void;
 }
-declare interface Scene_Debug {
-	new ();
+
+declare interface Scene_Debug
+{
+	new();
 	initialize(): void;
 	create(): void;
 	needsCancelButton(): boolean;
@@ -343,8 +382,10 @@ declare interface Scene_Debug {
 	refreshHelpWindow(): void;
 	helpText(): string;
 }
-declare interface Scene_Battle {
-	new ();
+
+declare interface Scene_Battle
+{
+	new();
 	initialize(): void;
 	create(): void;
 	start(): void;
@@ -419,17 +460,19 @@ declare interface Scene_Battle {
 	onItemCancel(): void;
 	onSelectAction(): void;
 	endCommandSelection(): void;
-	_statusWindow : /*no type*/{};
-	_partyCommandWindow : /*no type*/{};
-	_actorCommandWindow : /*no type*/{};
-	_helpWindow : /*no type*/{};
-	_skillWindow : /*no type*/{};
-	_itemWindow : /*no type*/{};
-	_actorWindow : /*no type*/{};
-	_enemyWindow : /*no type*/{};
+	_statusWindow: /*no type*/{};
+	_partyCommandWindow: /*no type*/{};
+	_actorCommandWindow: /*no type*/{};
+	_helpWindow: /*no type*/{};
+	_skillWindow: /*no type*/{};
+	_itemWindow: /*no type*/{};
+	_actorWindow: /*no type*/{};
+	_enemyWindow: /*no type*/{};
 }
-declare interface Scene_Gameover {
-	new ();
+
+declare interface Scene_Gameover
+{
+	new();
 	initialize(): void;
 	create(): void;
 	start(): void;
@@ -442,6 +485,7 @@ declare interface Scene_Gameover {
 	isTriggered(): boolean;
 	gotoTitle(): void;
 }
-declare var SceneManager : {
+
+declare var SceneManager: {
 	_previousClass: () => void;
 }
