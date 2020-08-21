@@ -290,7 +290,7 @@ declare interface Window_Selectable extends Window_Scrollable
 	maxVisibleItems(): number;
 	isHorizontal(): boolean;
 	topIndex(): number;
-	itemRect(index: number): Window_Selectable.prototype.ItemRectRet;
+	//itemRect(index: number): Window_Selectable.prototype.ItemRectRet;
 	itemRectWithPadding(index: number): Window_Selectable.prototype.ItemRectWithPaddingRet;
 	itemLineRect(index: number): Window_Selectable.prototype.ItemLineRectRet;
 	setHelpWindow(helpWindow: Window_Help): void;
@@ -334,9 +334,9 @@ declare interface Window_Selectable extends Window_Scrollable
 	callUpdateHelp(): void;
 	updateHelp(): void;
 	setHelpWindowItem(item: any): void;
-	isCurrentItemEnabled(): boolean;
+	//isCurrentItemEnabled(): boolean;
 	drawAllItems(): void;
-	drawItem(): void;
+	//drawItem(): void;
 	clearItem(index: number): void;
 	drawItemBackground(index: number): void;
 	drawBackgroundRect(rect: any): void;
