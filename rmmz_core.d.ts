@@ -36,124 +36,14 @@ declare namespace Bitmap.prototype{
 }
 declare namespace Tilemap{
 	// Tilemap.FLOOR_AUTOTILE_TABLE.<i>
-	type FLOOR_AUTOTILE_TABLEI = Array<Array</* number],[number],[number],[number */ any>>;
+	type FLOOR_AUTOTILE_TABLEI = Array<Array<number>>;
 }
-declare namespace Tilemap.FLOOR_AUTOTILE_TABLEI.0{
-	// Tilemap.FLOOR_AUTOTILE_TABLE.<i>.0
-	type 0 = Array<number>;
-}
-declare namespace Tilemap.FLOOR_AUTOTILE_TABLEI.1{
-	// Tilemap.FLOOR_AUTOTILE_TABLE.<i>.1
-	type 1 = Array<number>;
-}
-declare namespace Tilemap.FLOOR_AUTOTILE_TABLEI.2{
-	// Tilemap.FLOOR_AUTOTILE_TABLE.<i>.2
-	type 2 = Array<number>;
-}
-declare namespace Tilemap.FLOOR_AUTOTILE_TABLEI.3{
-	// Tilemap.FLOOR_AUTOTILE_TABLE.<i>.3
-	type 3 = Array<number>;
-}
+
 declare namespace Tilemap{
 	// Tilemap.WALL_AUTOTILE_TABLE.<i>
-	type WALL_AUTOTILE_TABLEI = Array<Array</* number],[number],[number],[number */ any>>;
+	type WALL_AUTOTILE_TABLEI = Array<Array<number>>;
 }
-declare namespace Tilemap.WALL_AUTOTILE_TABLEI.0{
-	// Tilemap.WALL_AUTOTILE_TABLE.<i>.0
-	type 0 = Array<number>;
-}
-declare namespace Tilemap.WALL_AUTOTILE_TABLEI.1{
-	// Tilemap.WALL_AUTOTILE_TABLE.<i>.1
-	type 1 = Array<number>;
-}
-declare namespace Tilemap.WALL_AUTOTILE_TABLEI.2{
-	// Tilemap.WALL_AUTOTILE_TABLE.<i>.2
-	type 2 = Array<number>;
-}
-declare namespace Tilemap.WALL_AUTOTILE_TABLEI.3{
-	// Tilemap.WALL_AUTOTILE_TABLE.<i>.3
-	type 3 = Array<number>;
-}
-declare namespace Tilemap.WATERFALL_AUTOTILE_TABLE.0{
-	// Tilemap.WATERFALL_AUTOTILE_TABLE.0
-	type 0 = Array<Array</* number],[number],[number],[number */ any>>;
-}
-declare namespace Tilemap.WATERFALL_AUTOTILE_TABLE.0.0{
-	// Tilemap.WATERFALL_AUTOTILE_TABLE.0.0
-	type 0 = Array<number>;
-}
-declare namespace Tilemap.WATERFALL_AUTOTILE_TABLE.0.1{
-	// Tilemap.WATERFALL_AUTOTILE_TABLE.0.1
-	type 1 = Array<number>;
-}
-declare namespace Tilemap.WATERFALL_AUTOTILE_TABLE.0.2{
-	// Tilemap.WATERFALL_AUTOTILE_TABLE.0.2
-	type 2 = Array<number>;
-}
-declare namespace Tilemap.WATERFALL_AUTOTILE_TABLE.0.3{
-	// Tilemap.WATERFALL_AUTOTILE_TABLE.0.3
-	type 3 = Array<number>;
-}
-declare namespace Tilemap.WATERFALL_AUTOTILE_TABLE.1{
-	// Tilemap.WATERFALL_AUTOTILE_TABLE.1
-	type 1 = Array<Array</* number],[number],[number],[number */ any>>;
-}
-declare namespace Tilemap.WATERFALL_AUTOTILE_TABLE.1.0{
-	// Tilemap.WATERFALL_AUTOTILE_TABLE.1.0
-	type 0 = Array<number>;
-}
-declare namespace Tilemap.WATERFALL_AUTOTILE_TABLE.1.1{
-	// Tilemap.WATERFALL_AUTOTILE_TABLE.1.1
-	type 1 = Array<number>;
-}
-declare namespace Tilemap.WATERFALL_AUTOTILE_TABLE.1.2{
-	// Tilemap.WATERFALL_AUTOTILE_TABLE.1.2
-	type 2 = Array<number>;
-}
-declare namespace Tilemap.WATERFALL_AUTOTILE_TABLE.1.3{
-	// Tilemap.WATERFALL_AUTOTILE_TABLE.1.3
-	type 3 = Array<number>;
-}
-declare namespace Tilemap.WATERFALL_AUTOTILE_TABLE.2{
-	// Tilemap.WATERFALL_AUTOTILE_TABLE.2
-	type 2 = Array<Array</* number],[number],[number],[number */ any>>;
-}
-declare namespace Tilemap.WATERFALL_AUTOTILE_TABLE.2.0{
-	// Tilemap.WATERFALL_AUTOTILE_TABLE.2.0
-	type 0 = Array<number>;
-}
-declare namespace Tilemap.WATERFALL_AUTOTILE_TABLE.2.1{
-	// Tilemap.WATERFALL_AUTOTILE_TABLE.2.1
-	type 1 = Array<number>;
-}
-declare namespace Tilemap.WATERFALL_AUTOTILE_TABLE.2.2{
-	// Tilemap.WATERFALL_AUTOTILE_TABLE.2.2
-	type 2 = Array<number>;
-}
-declare namespace Tilemap.WATERFALL_AUTOTILE_TABLE.2.3{
-	// Tilemap.WATERFALL_AUTOTILE_TABLE.2.3
-	type 3 = Array<number>;
-}
-declare namespace Tilemap.WATERFALL_AUTOTILE_TABLE.3{
-	// Tilemap.WATERFALL_AUTOTILE_TABLE.3
-	type 3 = Array<Array</* number],[number],[number],[number */ any>>;
-}
-declare namespace Tilemap.WATERFALL_AUTOTILE_TABLE.3.0{
-	// Tilemap.WATERFALL_AUTOTILE_TABLE.3.0
-	type 0 = Array<number>;
-}
-declare namespace Tilemap.WATERFALL_AUTOTILE_TABLE.3.1{
-	// Tilemap.WATERFALL_AUTOTILE_TABLE.3.1
-	type 1 = Array<number>;
-}
-declare namespace Tilemap.WATERFALL_AUTOTILE_TABLE.3.2{
-	// Tilemap.WATERFALL_AUTOTILE_TABLE.3.2
-	type 2 = Array<number>;
-}
-declare namespace Tilemap.WATERFALL_AUTOTILE_TABLE.3.3{
-	// Tilemap.WATERFALL_AUTOTILE_TABLE.3.3
-	type 3 = Array<number>;
-}
+
 declare namespace ColorFilter.prototype{
 	// ColorFilter.prototype.setColorTone.!0
 	type SetColorTone0 = Array<number>;
@@ -1619,7 +1509,7 @@ declare namespace Tilemap{
 	/**
 	 * prettier-ignore
 	 */
-	export var WATERFALL_AUTOTILE_TABLE : Array<Array<Array</* number],[number],[number],[number]],[[number],[number],[number],[number]],[[number],[number],[number],[number]],[[number],[number],[number],[number */ any>>>;
+	export var WATERFALL_AUTOTILE_TABLE : Array<Array<Array<number>>>;
 	
 	/**
 	 * :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
