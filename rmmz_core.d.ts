@@ -614,7 +614,7 @@ declare namespace rmmz_core.js
 	interface Array
 	{
 		prototype: {
-			clone(): Array<number>;
+			clone(): number[];
 			contains(element: any): boolean;
 			equals(array: Array.prototype.Equals0): boolean;
 			remove(element: number | {}): Array.prototype.RemoveRet;
