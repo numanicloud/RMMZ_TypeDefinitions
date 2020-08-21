@@ -21,133 +21,86 @@ declare namespace Game_Temp.prototype{
 		targets : /* Game_Temp._animationQueue.<i>.targets */ any;
 	}
 }
+
 declare namespace Game_SelfSwitches.prototype{
 	// Game_SelfSwitches.prototype.value.!0
 	type Value0 = Array</* number,number,? */ any>;
-}
-declare namespace Game_SelfSwitches.prototype{
 	// Game_SelfSwitches.prototype.setValue.!0
 	type SetValue0 = Array</* number,number,? */ any>;
 }
 declare namespace Game_Action.prototype{
 	// Game_Action.prototype.checkItemScope.!0
 	type CheckItemScope0 = Array<number>;
-}
-declare namespace Game_Action.prototype{
 	// Game_Action.prototype.checkDamageType.!0
 	type CheckDamageType0 = Array<number>;
-}
-declare namespace Game_Action.prototype{
 	// Game_Action.prototype.makeTargets.!ret
 	type MakeTargetsRet = Array<any>;
-}
-declare namespace Game_Action.prototype{
 	// Game_Action.prototype.repeatTargets.!0
 	type RepeatTargets0 = Array<Game_Enemy>;
-}
-declare namespace Game_Action.prototype{
 	// Game_Action.prototype.targetsForOpponents.!ret
 	type TargetsForOpponentsRet = Array<Game_Enemy>;
-}
-declare namespace Game_Action.prototype{
 	// Game_Action.prototype.targetsForFriends.!ret
 	type TargetsForFriendsRet = Array<Game_Actor>;
-}
-declare namespace Game_Action.prototype{
 	// Game_Action.prototype.randomTargets.!ret
 	type RandomTargetsRet = Array<Game_Enemy>;
-}
-declare namespace Game_Action.prototype{
 	// Game_Action.prototype.targetsForDead.!ret
 	type TargetsForDeadRet = Array<Game_Enemy>;
-}
-declare namespace Game_Action.prototype{
 	// Game_Action.prototype.targetsForDeadAndAlive.!ret
 	type TargetsForDeadAndAliveRet = Array<any>;
-}
-declare namespace Game_Action.prototype{
 	// Game_Action.prototype.itemTargetCandidates.!ret
 	type ItemTargetCandidatesRet = Array<Game_Actor>;
-}
-declare namespace Game_Action.prototype{
 	// Game_Action.prototype.elementsMaxRate.!1
 	type ElementsMaxRate1 = Array<number>;
 }
 declare namespace Game_ActionResult.prototype{
 	// Game_ActionResult.prototype.addedStateObjects.!ret
 	type AddedStateObjectsRet = Array<any>;
-}
-declare namespace Game_ActionResult.prototype{
 	// Game_ActionResult.prototype.removedStateObjects.!ret
 	type RemovedStateObjectsRet = Array<any>;
 }
 declare namespace Game_BattlerBase.prototype{
 	// Game_BattlerBase.prototype.states.!ret
 	type StatesRet = Array<any>;
-}
-declare namespace Game_BattlerBase.prototype{
 	// Game_BattlerBase.prototype.stateIcons.!ret
 	type StateIconsRet = Array<any>;
-}
-declare namespace Game_BattlerBase.prototype{
 	// Game_BattlerBase.prototype.buffIcons.!ret
 	type BuffIconsRet = Array<number>;
-}
-declare namespace Game_BattlerBase.prototype{
 	// Game_BattlerBase.prototype.allTraits.!ret
 	type AllTraitsRet = Array<any>;
-}
-declare namespace Game_BattlerBase.prototype{
 	// Game_BattlerBase.prototype.actionPlusSet.!ret
 	type ActionPlusSetRet = Array<any>;
 }
 declare namespace Game_Actor.prototype{
 	// Game_Actor.prototype.equipSlots.!ret
 	type EquipSlotsRet = Array<number>;
-}
-declare namespace Game_Actor.prototype{
 	// Game_Actor.prototype.equips.!ret
 	type EquipsRet = Array<any>;
-}
-declare namespace Game_Actor.prototype{
 	// Game_Actor.prototype.skills.!ret
 	type SkillsRet = Array<any>;
-}
-declare namespace Game_Actor.prototype{
 	// Game_Actor.prototype.makeActionList.!ret
 	type MakeActionListRet = Array<Game_Action>;
 }
 declare namespace Game_Unit.prototype{
 	// Game_Unit.prototype.members.!ret
 	type MembersRet = Array<any>;
-}
-declare namespace Game_Unit.prototype{
 	// Game_Unit.prototype.movableMembers.!ret
 	type MovableMembersRet = Array<Game_Actor>;
 }
 declare namespace Game_Party.prototype{
 	// Game_Party.prototype.items.!ret
 	type ItemsRet = Array<any>;
-}
-declare namespace Game_Party.prototype{
 	// Game_Party.prototype.weapons.!ret
 	type WeaponsRet = Array<any>;
-}
-declare namespace Game_Party.prototype{
 	// Game_Party.prototype.armors.!ret
 	type ArmorsRet = Array<any>;
-}
-declare namespace Game_Party.prototype{
 	// Game_Party.prototype.charactersForSavefile.!ret
 	type CharactersForSavefileRet = Array<Game_Party.prototype.charactersForSavefile.CharactersForSavefileRetI>;
+	// Game_Party.prototype.facesForSavefile.!ret
+	type FacesForSavefileRet = Array<Game_Party.prototype.facesForSavefile.FacesForSavefileRetI>;
 }
 declare namespace Game_Party.prototype.charactersForSavefile{
 	// Game_Party.prototype.charactersForSavefile.!ret.<i>
 	type CharactersForSavefileRetI = Array</* string,number */ any>;
-}
-declare namespace Game_Party.prototype{
-	// Game_Party.prototype.facesForSavefile.!ret
-	type FacesForSavefileRet = Array<Game_Party.prototype.facesForSavefile.FacesForSavefileRetI>;
 }
 declare namespace Game_Party.prototype.facesForSavefile{
 	// Game_Party.prototype.facesForSavefile.!ret.<i>
@@ -156,40 +109,26 @@ declare namespace Game_Party.prototype.facesForSavefile{
 declare namespace Game_Troop.prototype{
 	// Game_Troop.prototype.enemyNames.!ret
 	type EnemyNamesRet = Array<any>;
-}
-declare namespace Game_Troop.prototype{
 	// Game_Troop.prototype.makeDropItems.!ret
 	type MakeDropItemsRet = Array<any>;
 }
 declare namespace Game_Map.prototype{
 	// Game_Map.prototype.tilesetFlags.!ret
 	type TilesetFlagsRet = Array<any>;
-}
-declare namespace Game_Map.prototype{
 	// Game_Map.prototype.canvasToMapX.!0
 	type CanvasToMapX0 = number;
-}
-declare namespace Game_Map.prototype{
 	// Game_Map.prototype.canvasToMapY.!0
 	type CanvasToMapY0 = number;
-}
-declare namespace Game_Map.prototype{
 	// Game_Map.prototype.layeredTiles.!ret
 	type LayeredTilesRet = Array<number>;
-}
-declare namespace Game_Map.prototype{
 	// Game_Map.prototype.allTiles.!ret
 	type AllTilesRet = Array<number>;
 }
 declare namespace Game_Player.prototype{
 	// Game_Player.prototype.startMapEvent.!2
 	type StartMapEvent2 = Array<number>;
-}
-declare namespace Game_Player.prototype{
 	// Game_Player.prototype.checkEventTriggerHere.!0
 	type CheckEventTriggerHere0 = Array<number>;
-}
-declare namespace Game_Player.prototype{
 	// Game_Player.prototype.checkEventTriggerThere.!0
 	type CheckEventTriggerThere0 = Array<number>;
 }
@@ -200,14 +139,10 @@ declare namespace Game_Event.prototype{
 declare namespace Game_Interpreter.prototype{
 	// Game_Interpreter.prototype.iterateActorId.!1
 	type IterateActorId1 = ((battler : Game_Actor) => void);
-}
-declare namespace Game_Interpreter.prototype{
 	// Game_Interpreter.prototype.iterateActorEx.!2
 	type IterateActorEx2 = ((actor : Game_Actor) => void);
-}
-declare namespace Game_Interpreter.prototype{
-	// Game_Interpreter.prototype.picturePoint.!ret
 	
+	// Game_Interpreter.prototype.picturePoint.!ret
 	/**
 	 * 
 	 */
@@ -242,8 +177,6 @@ declare namespace Game_Temp{
 		 */
 		mirror : boolean;
 	}
-}
-declare namespace Game_Temp{
 	// Game_Temp._balloonQueue.<i>
 	
 	/**
@@ -268,7 +201,7 @@ declare namespace Game_Map{
 		/**
 		 * 
 		 */
-		 : Game_Event;
+		[index: number]: Game_Event;
 	}
 }
 declare namespace Game_Temp.prototype{
@@ -284,8 +217,6 @@ declare namespace Game_Temp.prototype{
 		 */
 		target : Game_Event;
 	}
-}
-declare namespace Game_Temp.prototype{
 	// Game_Temp.prototype.requestAnimation.!0
 	
 	/**
@@ -311,8 +242,6 @@ declare namespace Game_Map.prototype{
 	 */
 	interface VehiclesRet {
 	}
-}
-declare namespace Game_Map.prototype{
 	// Game_Map.prototype.events.!ret
 	
 	/**
@@ -4267,11 +4196,6 @@ declare interface Game_Battler extends Game_BattlerBase {
 	 * 
 	 */
 	new ();
-		
-	/**
-	 * 
-	 */
-	initialize(): void;
 		
 	/**
 	 * 
