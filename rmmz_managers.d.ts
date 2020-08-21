@@ -2288,7 +2288,7 @@ declare namespace SceneManager{
 	 * 
 	 * @param sceneClass 
 	 */
-	function goto(sceneClass : any): void;
+	function goto(sceneClass : Scene_Base): void;
 		
 	/**
 	 * 
