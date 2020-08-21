@@ -251,7 +251,7 @@ declare interface Game_Temp
 	reserveCommonEvent(commonEventId: any): void;
 	retrieveCommonEvent(): void;
 	isCommonEventReserved(): boolean;
-	requestAnimation(targets: Array<Game_Player> | Array<Game_Enemy> | RequestAnimation0, animationId: any, mirror: boolean): void;
+	requestAnimation(targets: Array<Game_Player> | Array<Game_Enemy> | Game_Temp.prototype.RequestAnimation0, animationId: any, mirror: boolean): void;
 	retrieveAnimation(): Game_Temp.prototype.RetrieveAnimationRet;
 	requestBalloon(target: Game_Player, balloonId: any): void;
 	retrieveBalloon(): Game_Temp.prototype.RetrieveBalloonRet;
@@ -772,7 +772,7 @@ declare interface Game_ActionResult
 declare interface Game_BattlerBase
 {
 	new();
-	initialize(): void;
+	//initialize(): void;
 	initMembers(): void;
 	clearParamPlus(): void;
 	clearStates(): void;
@@ -812,7 +812,7 @@ declare interface Game_BattlerBase
 	traitsSum(code: number, id: number): void;
 	traitsSumAll(code: number): void;
 	traitsSet(code: number): Array<number>;
-	paramBase(): number;
+	//paramBase(): number;
 	paramPlus(paramId: number): /* !this._paramPlus.<i> */ any;
 	paramBasePlus(paramId: number): number;
 	paramMin(paramId: number): number;
@@ -882,7 +882,7 @@ declare interface Game_BattlerBase
 	mostImportantStateText(): string;
 	stateMotionIndex(): number;
 	stateOverlayIndex(): number;
-	isSkillWtypeOk(): boolean;
+	//isSkillWtypeOk(): boolean;
 	skillMpCost(skill: any): number;
 	skillTpCost(skill: any):  /* error */ any;
 	canPaySkillCost(skill: any): boolean;
@@ -938,6 +938,7 @@ declare interface Game_BattlerBase
 declare interface Game_Battler extends Game_BattlerBase
 {
 	new();
+	//initialize(): void;
 	initMembers(): void;
 	clearDamagePopup(): void;
 	clearWeaponAnimation(): void;
@@ -1045,7 +1046,7 @@ declare interface Game_Battler extends Game_BattlerBase
 	isChanting(): boolean;
 	isGuardWaiting(): boolean;
 	performActionStart(action: any): void;
-	performAction(): void;
+	//performAction(): void;
 	performActionEnd(): void;
 	performDamage(): void;
 	performMiss(): void;
@@ -1615,7 +1616,7 @@ declare interface Game_CommonEvent
 declare interface Game_CharacterBase
 {
 	new();
-	initialize(): void;
+	//initialize(): void;
 	initMembers(): void;
 	pos(x: number, y: number): boolean;
 	posNt(x: number, y: number): boolean;
@@ -1661,7 +1662,7 @@ declare interface Game_CharacterBase
 	screenY(): number;
 	screenZ(): number;
 	isNearTheScreen(): boolean;
-	update(): void;
+	//update(): void;
 	updateStop(): void;
 	updateJump(): void;
 	updateMove(): void;
@@ -1686,7 +1687,7 @@ declare interface Game_CharacterBase
 	setImage(characterName: string, characterIndex: number): void;
 	setTileImage(tileId: any): void;
 	checkEventTriggerTouchFront(d: number): void;
-	checkEventTriggerTouch(): boolean;
+	//checkEventTriggerTouch(): boolean;
 	isMovementSucceeded(): /* !this._movementSuccess */ any;
 	setMovementSuccess(success: boolean): void;
 	moveStraight(d: number): void;
@@ -1714,7 +1715,7 @@ declare interface Game_CharacterBase
 declare interface Game_Character extends Game_CharacterBase
 {
 	new();
-	initialize(): void;
+	//initialize(): void;
 	initMembers(): void;
 	memorizeMoveRoute(): void;
 	restoreMoveRoute(): void;
