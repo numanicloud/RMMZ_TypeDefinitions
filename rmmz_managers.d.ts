@@ -3268,20 +3268,3 @@ declare var WebAudio : {
 	 */
 	pan : number;
 }
-
-/**
- * 
- */
-declare namespace rmmz_managers.js{
-	
-	/**
-	 * 
-	 */
-	interface Promise {
-				
-		/**
-		 * 
-		 */
-		:t : string;
-	}
-}
