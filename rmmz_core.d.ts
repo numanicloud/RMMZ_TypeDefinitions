@@ -516,7 +516,7 @@ declare namespace Input
 	function isTriggered(keyName: string): boolean;
 	function isRepeated(keyName: string): boolean;
 	function isLongPressed(keyName: string): boolean;
-	function virtualClick(buttonName: any): void;
+	function virtualClick(buttonName: string): undefined
 	function _setupEventHandlers(): void;
 	function _onKeyDown(event: any): void;
 	function _shouldPreventDefault(keyCode: any): boolean;
@@ -564,21 +564,21 @@ declare namespace TouchInput
 	export var _moved: boolean;
 	export var _date: number;
 	function update(): void;
-	function isClicked(): /* !this._clicked */ any;
-	function isPressed(): /* !this._mousePressed */ any;
-	function isTriggered(): /* !this._currentState.triggered */ any;
+	function isClicked(): boolean
+	function isPressed(): boolean
+	function isTriggered(): boolean
 	function isRepeated(): /* !this._currentState.triggered */ any;
 	function isLongPressed(): boolean;
-	function isCancelled(): /* !this._currentState.cancelled */ any;
-	function isMoved(): /* !this._currentState.moved */ any;
-	function isHovered(): /* !this._currentState.hovered */ any;
-	function isReleased(): /* !this._currentState.released */ any;
+	function isCancelled(): boolean
+	function isMoved(): boolean
+	function isHovered(): boolean
+	function isReleased(): boolean
 	function _createNewState(): /* TouchInput._newState */ any;
 	function _setupEventHandlers(): void;
-	function _onMouseDown(event: any): void;
-	function _onLeftButtonDown(event: any): void;
+	function _onMouseDown(event: MouseEvent): void;
+	function _onLeftButtonDown(event: MouseEvent): void;
 	function _onMiddleButtonDown(): void;
-	function _onRightButtonDown(event: any): void;
+	function _onRightButtonDown(event: MouseEvent): void;
 	function _onMouseMove(event: any): void;
 	function _onMouseUp(event: any): void;
 	function _onWheel(event: any): void;
