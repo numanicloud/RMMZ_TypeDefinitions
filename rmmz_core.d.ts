@@ -580,7 +580,7 @@ declare namespace TouchInput
 	function _onMiddleButtonDown(): void;
 	function _onRightButtonDown(event: MouseEvent): void;
 	function _onMouseMove(event: any): void;
-	function _onMouseUp(event: any): void;
+	function _onMouseUp(event: MouseEvent): void;
 	function _onWheel(event: any): void;
 	function _onTouchStart(event: any): void;
 	function _onTouchMove(event: any): void;
@@ -602,7 +602,7 @@ declare interface JsonEx
 declare namespace JsonEx
 {
 	export var maxDepth: number;
-	function stringify(object: JsonEx.Stringify0): string;
+	function stringify(object: Object): string;
 	function parse(json: string): any;
 	function makeDeepCopy(object: any): any;
 	function _encode(value: /* JsonEx.stringify.!0 */ any, depth: number): /* JsonEx._encodeRet */ any;
