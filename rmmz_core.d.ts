@@ -167,7 +167,7 @@ declare namespace Graphics
 	function resize(width: number, height: number): void;
 	function _createAllElements(): void;
 	function _updateAllElements(): void;
-	function _onTick(deltaTime: any): void;
+	function _onTick(deltaTime: number): void;
 	function _canRender(): boolean;
 	function _updateRealScale(): void;
 	function _stretchWidth(): void;
@@ -181,13 +181,13 @@ declare namespace Graphics
 	function _updateVideo(): void;
 	function _createLoadingSpinner(): void;
 	function _createFPSCounter(): void;
-	function _centerElement(element: any): void;
+	function _centerElement(element: HTMLCanvasElement): void;
 	function _disableContextMenu(): void;
 	function _applyCanvasFilter(): void;
 	function _clearCanvasFilter(): void;
 	function _setupEventHandlers(): void;
 	function _onWindowResize(): void;
-	function _onKeyDown(event: any): void;
+	function _onKeyDown(event: KeyboardEvent): void;
 	function _switchFPSCounter(): void;
 	function _switchStretchMode(): void;
 	function _switchFullScreen(): void;
@@ -229,7 +229,7 @@ declare interface Rectangle
 declare interface Bitmap
 {
 	new();
-	initialize(width: any, height: any): void;
+	initialize(width: number, height: number): void;
 	isReady(): boolean;
 	isError(): boolean;
 	destroy(): void;
@@ -254,7 +254,7 @@ declare interface Bitmap
 	_createCanvas(width: number, height: number): void;
 	_ensureCanvas(): void;
 	_destroyCanvas(): void;
-	_createBaseTexture(source: any): void;
+	_createBaseTexture(source: HTMLImageElement): void;
 	_updateScaleMode(): void;
 	_startLoading(): void;
 	_startDecrypting(): void;
@@ -398,9 +398,9 @@ declare interface WebAudio
 	new();
 	initialize(): boolean;
 	clear(): void;
-	isReady(): /* !this._buffers */ any;
-	isError(): /* !this._isError */ any;
-	isPlaying(): /* !this._isPlaying */ any;
+	isReady(): boolean;
+	isError(): boolean;
+	isPlaying(): boolean;
 	play(loop: boolean, offset: number): void;
 	stop(): void;
 	destroy(): void;
@@ -418,15 +418,15 @@ declare interface WebAudio
 	_startXhrLoading(url: string): void;
 	_startFetching(url: string): void;
 	_onXhrLoad(xhr: /* WebAudio.prototype._onXhrLoad0 */ any): void;
-	_onFetch(response: any): void;
+	_onFetch(response: Response): void;
 	_onError(): void;
-	_onFetchProcess(value: any): void;
+	_onFetchProcess(value: Uint8Array): void;
 	_updateBufferOnFetch(): void;
 	_concatenateFetchedData(): void;
 	_updateBuffer(): void;
-	_readableBuffer(): /* !this._data.buffer */ any;
+	_readableBuffer(): ArrayBuffer;
 	_decodeAudioData(arrayBuffer: ArrayBuffer): void;
-	_onDecode(buffer: any): void;
+	_onDecode(buffer: AudioBuffer): void;
 	_refreshSourceNode(): void;
 	_startPlaying(offset: number): void;
 	_startAllSourceNodes(): void;
@@ -518,9 +518,9 @@ declare namespace Input
 	function isLongPressed(keyName: string): boolean;
 	function virtualClick(buttonName: string): undefined
 	function _setupEventHandlers(): void;
-	function _onKeyDown(event: any): void;
-	function _shouldPreventDefault(keyCode: any): boolean;
-	function _onKeyUp(event: any): void;
+	function _onKeyDown(event: KeyboardEvent): void;
+	function _shouldPreventDefault(keyCode: number): boolean;
+	function _onKeyUp(event: KeyboardEvent): void;
 	function _onLostFocus(): void;
 	function _pollGamepads(): void;
 	function _updateGamepadState(gamepad: any): void;
@@ -567,7 +567,7 @@ declare namespace TouchInput
 	function isClicked(): boolean
 	function isPressed(): boolean
 	function isTriggered(): boolean
-	function isRepeated(): /* !this._currentState.triggered */ any;
+	function isRepeated(): boolean;
 	function isLongPressed(): boolean;
 	function isCancelled(): boolean
 	function isMoved(): boolean
@@ -579,9 +579,9 @@ declare namespace TouchInput
 	function _onLeftButtonDown(event: MouseEvent): void;
 	function _onMiddleButtonDown(): void;
 	function _onRightButtonDown(event: MouseEvent): void;
-	function _onMouseMove(event: any): void;
+	function _onMouseMove(event: MouseEvent): void;
 	function _onMouseUp(event: MouseEvent): void;
-	function _onWheel(event: any): void;
+	function _onWheel(event: WheelEvent): void;
 	function _onTouchStart(event: any): void;
 	function _onTouchMove(event: any): void;
 	function _onTouchEnd(event: any): void;
@@ -603,7 +603,7 @@ declare namespace JsonEx
 {
 	export var maxDepth: number;
 	function stringify(object: Object): string;
-	function parse(json: string): any;
+	function parse(json: string): Object;
 	function makeDeepCopy(object: any): any;
 	function _encode(value: /* JsonEx.stringify.!0 */ any, depth: number): /* JsonEx._encodeRet */ any;
 	function _decode(value: /* JsonEx._decode0 */ any): /* JsonEx._decode0 */ any;
