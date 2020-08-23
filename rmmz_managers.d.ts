@@ -205,7 +205,7 @@ declare namespace ConfigManager
 	export var seVolume: number;
 	function load(): void;
 	function save(): void;
-	function isLoaded(): /* !this._isLoaded */ any;
+	function isLoaded(): boolean;
 	function makeData(): ConfigManager.MakeDataRet;
 	function applyData(config: any): void;
 	function readFlag(config: any, name: string, defaultValue: boolean): boolean;
@@ -241,12 +241,12 @@ declare namespace StorageManager
 	function forageExists(saveName: string): boolean;
 	function removeForage(saveName: any): void;
 	function updateForageKeys(): void;
-	function forageKeysUpdated(): /* !this._forageKeysUpdated */ any;
-	function fsMkdir(path: any): void;
+	function forageKeysUpdated(): boolean;
+	function fsMkdir(path: string): void;
 	function fsRename(oldPath: string, newPath: string): void;
 	function fsUnlink(path: string): void;
-	function fsReadFile(path: any): void;
-	function fsWriteFile(path: string, data: any): void;
+	function fsReadFile(path: string): null;
+	function fsWriteFile(path: string, data: string): void;
 	function fileDirectoryPath(): void;
 	function filePath(saveName: string): string;
 	function forageKey(saveName: string): string;
@@ -264,11 +264,11 @@ declare namespace FontManager
 	}
 	var _states: {
 	}
-	function load(family: string, filename: any): void;
+	function load(family: string, filename: string): void;
 	function isReady(): boolean;
 	function startLoading(family: string, url: string): void;
 	function throwLoadError(family: any): void;
-	function makeUrl(filename: any): string;
+	function makeUrl(filename: string): string;
 }
 
 declare interface ImageManager
@@ -288,9 +288,9 @@ declare namespace ImageManager
 	}
 	export var _emptyBitmap: Bitmap;
 	function loadAnimation(filename: any): Bitmap;
-	function loadBattleback1(filename: any): Bitmap;
-	function loadBattleback2(filename: any): Bitmap;
-	function loadEnemy(filename: any): Bitmap;
+	function loadBattleback1(filename: string): Bitmap;
+	function loadBattleback2(filename: string): Bitmap;
+	function loadEnemy(filename: string): Bitmap;
 	function loadCharacter(filename: string): Bitmap;
 	function loadFace(filename: string): Bitmap;
 	function loadParallax(filename: string): Bitmap;
@@ -298,11 +298,11 @@ declare namespace ImageManager
 	function loadSvActor(filename: any): Bitmap;
 	function loadSvEnemy(filename: any): Bitmap;
 	function loadSystem(filename: string): Bitmap;
-	function loadTileset(filename: any): Bitmap;
-	function loadTitle1(filename: any): Bitmap;
-	function loadTitle2(filename: any): Bitmap;
-	function loadBitmap(folder: string, filename: string): /* !this._emptyBitmap */ any;
-	function loadBitmapFromUrl(url: string): /* !this._system.<i> */ any;
+	function loadTileset(filename: string): Bitmap;
+	function loadTitle1(filename: string): Bitmap;
+	function loadTitle2(filename: string): Bitmap;
+	function loadBitmap(folder: string, filename: string): Bitmap;
+	function loadBitmapFromUrl(url: string): Bitmap;
 	function clear(): void;
 	function isReady(): boolean;
 	function throwLoadError(bitmap: Bitmap): void;
@@ -326,7 +326,7 @@ declare namespace EffectManager
 	function clear(): void;
 	function onLoad(): void;
 	function onError(url: string): void;
-	function makeUrl(filename: any): string;
+	function makeUrl(filename: string): string;
 	function checkErrors(): void;
 	function throwLoadError(url: string): void;
 	function isReady(): boolean;
@@ -385,7 +385,7 @@ declare namespace AudioManager
 	function saveBgm(): /* BattleManager._mapBgm */ any;
 	function saveBgs(): /* BattleManager._mapBgs */ any;
 	function makeEmptyAudioObject(): AudioManager.MakeEmptyAudioObjectRet;
-	function createBuffer(folder: string, name: any): WebAudio;
+	function createBuffer(folder: string, name: string): WebAudio;
 	function updateBufferParameters(buffer: WebAudio, configVolume: number, audio: /* BattleManager._mapBgm */ any): void;
 	function audioFileExt(): string;
 	function checkErrors(): void;
@@ -435,10 +435,10 @@ declare interface TextManager
 
 declare namespace TextManager
 {
-	function basic(basicId: any): string;
+	function basic(basicId: number): string;
 	function param(paramId: number): string;
-	function command(commandId: any): string;
-	function message(messageId: any): string;
+	function command(commandId: number): string;
+	function message(messageId: string): string;
 	function getter(method: string, param: number | string): TextManager.GetterRet;
 }
 
@@ -469,7 +469,7 @@ declare namespace ColorManager
 	function tpGaugeColor2(): string;
 	function tpCostColor(): string;
 	function pendingColor(): string;
-	function hpColor(actor: /* BattleManager._currentActor */ any): string;
+	function hpColor(actor: Game_Actor): string;
 	function mpColor(): string;
 	function tpColor(): string;
 	function paramchangeTextColor(change: number): string;
@@ -503,13 +503,13 @@ declare namespace SceneManager
 	function initVideo(): void;
 	function initInput(): void;
 	function setupEventHandlers(): void;
-	function update(deltaTime: any): void;
-	function determineRepeatNumber(deltaTime: any): number;
+	function update(deltaTime: number): void;
+	function determineRepeatNumber(deltaTime: number): number;
 	function terminate(): void;
 	function onError(event: SceneManager.OnError0): void;
 	function onReject(event: /* SceneManager.onError.!0 */ any): void;
 	function onUnload(): void;
-	function onKeyDown(event: any): void;
+	function onKeyDown(event: KeyboardEvent): void;
 	function reloadGame(): void;
 	function showDevTools(): void;
 	function catchException(e: any): void;
@@ -527,7 +527,7 @@ declare namespace SceneManager
 	function onSceneCreate(): void;
 	function onBeforeSceneStart(): void;
 	function onSceneStart(): void;
-	function isSceneChanging(): /* !this._exiting */ any;
+	function isSceneChanging(): boolean;
 	function isCurrentSceneBusy(): /* !this._scene */ any;
 	function isNextScene(sceneClass: any): /* !this._nextScene */ any;
 	function isPreviousScene(sceneClass: (() => void) | (() => void)): boolean;
@@ -540,7 +540,7 @@ declare namespace SceneManager
 	function prepareNextScene(): void;
 	function snap(): Bitmap;
 	function snapForBackground(): void;
-	function backgroundBitmap(): /* !this._backgroundBitmap */ any;
+	function backgroundBitmap(): Bitmap;
 	function resume(): void;
 }
 
@@ -578,11 +578,11 @@ declare namespace BattleManager
 	export var _tpbNeedsPartyCommand: boolean;
 	function isTpb(): boolean;
 	function isActiveTpb(): boolean;
-	function isBattleTest(): /* !this._battleTest */ any;
+	function isBattleTest(): boolean;
 	function setBattleTest(battleTest: boolean): void;
 	function setEventCallback(callback: () => void): void;
-	function setLogWindow(logWindow: {} | /* BattleManager._logWindow */ any): void;
-	function setSpriteset(spriteset: /* BattleManager._spriteset */ any): void;
+	function setLogWindow(logWindow: Window_BattleLog): void;
+	function setSpriteset(spriteset: Spriteset_Battle): void;
 	function onEncounter(): void;
 	function ratePreemptive(): number;
 	function rateSurprise(): number;
@@ -603,12 +603,12 @@ declare namespace BattleManager
 	function isPartyTpbInputtable(): boolean;
 	function needsActorInputCancel(): /* !this._currentActor */ any;
 	function isTpbMainPhase(): boolean;
-	function isInputting(): /* !this._inputting */ any;
+	function isInputting(): boolean;
 	function isInTurn(): boolean;
 	function isTurnEnd(): boolean;
 	function isAborting(): boolean;
 	function isBattleEnd(): boolean;
-	function canEscape(): /* !this._canEscape */ any;
+	function canEscape(): boolean;
 	function canLose(): /* !this._canLose */ any;
 	function isEscaped(): /* !this._escaped */ any;
 	function actor(): /* !this._currentActor */ any;
@@ -632,10 +632,10 @@ declare namespace BattleManager
 	function updateTpbBattler(battler: /* BattleManager._currentActor */ any): void;
 	function checkTpbTurnEnd(): void;
 	function processTurn(): void;
-	function endBattlerActions(battler: /* BattleManager._currentActor */ any): void;
+	function endBattlerActions(battler: Game_Actor): void;
 	function endTurn(): void;
 	function endAllBattlersTurn(): void;
-	function displayBattlerStatus(battler: /* BattleManager._currentActor */ any, current: boolean): void;
+	function displayBattlerStatus(battler: Game_Actor, current: boolean): void;
 	function updateTurnEnd(): void;
 	function getNextSubject(): void;
 	function allBattleMembers(): Array</* BattleManager._currentActor */ any>;
@@ -643,12 +643,12 @@ declare namespace BattleManager
 	function startAction(): void;
 	function updateAction(): void;
 	function endAction(): void;
-	function invokeAction(subject: /* BattleManager._currentActor */ any, target: any): void;
-	function invokeNormalAction(subject: /* BattleManager._currentActor */ any, target: any): void;
+	function invokeAction(subject: Game_Actor, target: Game_Enemy): void;
+	function invokeNormalAction(subject: Game_Actor, target: Game_Enemy): void;
 	function invokeCounterAttack(subject: /* BattleManager._currentActor */ any, target: any): void;
 	function invokeMagicReflection(subject: /* BattleManager._currentActor */ any, target: any): void;
-	function applySubstitute(target: any): any;
-	function checkSubstitute(target: any): boolean;
+	function applySubstitute(target: Game_Enemy): Game_Enemy;
+	function checkSubstitute(target: Game_Enemy): boolean;
 	function isActionForced(): boolean;
 	function forceAction(battler: /* BattleManager._currentActor */ any): void;
 	function processForcedAction(): void;
