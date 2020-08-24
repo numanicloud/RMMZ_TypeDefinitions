@@ -1,5 +1,169 @@
 // Type definitions for rmmz_managers.js
 
+declare interface SaveFileInfo
+{
+	title: string;
+	characters: Array<any>;
+	faces: Array<any>;
+	playtime: string;
+	timestamp: number;
+}
+
+declare interface UserConfig
+{
+	alwaysDash: boolean;
+	commandRemember: boolean;
+	touchUI: boolean;
+	bgmVolume: number;
+	bgsVolume: number;
+	meVolume: number;
+	seVolume: number;
+}
+
+declare interface EntryData
+{
+	id: number;
+	iconIndex: number;
+	name: string;
+	note: string;
+	meta: {};
+}
+
+declare interface ItemData extends EntryData
+{
+    id: number;
+	animationId: number;
+	consumable: boolean;
+	damage: Object;
+	description: string;
+	effects: Array<any>;
+	hitType: number;
+	iconIndex: number;
+	itypeId: number;
+	name: string;
+	note: string;
+	occasion: number;
+	price: number;
+	repeats: number;
+	scope: number;
+	speed: number;
+	successRate: number;
+	tpGain: number;
+	meta: {};
+}
+
+declare interface WeaponData extends EntryData
+{
+	id: number;
+	animationId: number;
+	description: string;
+	etypeId: number;
+	traits: Array<any>;
+	iconIndex: number;
+	name: string;
+	note: string;
+	params: Array<any>;
+	price: number;
+	wtypeId: number;
+	meta: {};
+}
+
+declare interface ArmorData extends EntryData
+{
+	id: number;
+	atypeId: number;
+	description: string;
+	etypeId: number;
+	traits: Array<any>;
+	iconIndex: number;
+	name: string;
+	note: string;
+	params: Array<any>;
+	price: number;
+	meta: {};
+}
+
+declare interface BattlerStatus
+{
+	id: number;
+	autoRemovalTiming: number;
+	chanceByDamage: number;
+	iconIndex: number;
+	maxTurns: number;
+	message1: string;
+	message2: string;
+	message3: string;
+	message4: string;
+	minTurns: number;
+	motion: number;
+	name: string;
+	note: string;
+	overlay: number;
+	priority: number;
+	releaseByDamage: boolean;
+	removeAtBattleEnd: boolean;
+	removeByDamage: boolean;
+	removeByRestriction: boolean;
+	removeByWalking: boolean;
+	restriction: number;
+	stepsToRemove: number;
+	traits: Array<any>;
+	messageType: number;
+	meta: {};
+}
+
+declare interface SkillData extends EntryData
+{
+	id: number;
+	animationId: number;
+	damage: Object;
+	description: string;
+	effects: Array<any>;
+	hitType: number;
+	iconIndex: number;
+	message1: string;
+	message2: string;
+	mpCost: number;
+	name: string;
+	note: string;
+	occasion: number;
+	repeats: number;
+	requiredWtypeId1: number;
+	requiredWtypeId2: number;
+	scope: number;
+	speed: number;
+	stypeId: number;
+	successRate: number;
+	tpCost: number;
+	tpGain: number;
+	messageType: number;
+	meta: {};
+}
+
+declare interface AudioSettings
+{
+    name: string;
+    volume: number;
+    pitch: number;
+}
+
+declare interface PannableAudioSettings extends AudioSettings
+{
+	name: string;
+	pan: number;
+	pitch: number;
+	volume: number;
+}
+
+declare interface PhasableAudioSettings extends PannableAudioSettings
+{
+	name: string;
+	volume: number;
+	pitch: number;
+	pan: number;
+	pos: number;
+}
+
 declare namespace DataManager
 {
 	// DataManager._globalInfo.<i>
@@ -148,7 +312,7 @@ declare namespace DataManager
 	function isGlobalInfoLoaded(): boolean;
 	function loadDatabase(): void;
 	function loadDataFile(name: string, src: string): void;
-	function onXhrLoad(xhr: DataManager.OnXhrLoad0, name: string, src: string, url: string): void;
+	function onXhrLoad(xhr: XMLHttpRequest, name: string, src: string, url: string): void;
 	function onXhrError(name: string, src: string, url: string): void;
 	function isDatabaseLoaded(): boolean;
 	function loadMapData(mapId: number): void;
@@ -161,10 +325,10 @@ declare namespace DataManager
 	function checkError(): void;
 	function isBattleTest(): boolean;
 	function isEventTest(): boolean;
-	function isSkill(item: any): any;
-	function isItem(item: any): any;
-	function isWeapon(item: any): any;
-	function isArmor(item: any): any;
+	function isSkill(item: EntryData): boolean;
+	function isItem(item: ItemData): boolean;
+	function isWeapon(item: WeaponData): boolean;
+	function isArmor(item: ArmorData): boolean;
 	function createGameObjects(): void;
 	function setupNewGame(): void;
 	function setupBattleTest(): void;
@@ -174,15 +338,15 @@ declare namespace DataManager
 	function earliestSavefileId(): number;
 	function emptySavefileId(): number;
 	function loadAllSavefileImages(): void;
-	function loadSavefileImages(info: /* DataManager._globalInfo.<i> */ any): void;
+	function loadSavefileImages(info: SaveFileInfo): void;
 	function maxSavefiles(): number;
-	function savefileInfo(savefileId: number): /* !this._globalInfo.<i> */ any;
+	function savefileInfo(savefileId: number): SaveFileInfo;
 	function savefileExists(savefileId: number): boolean;
 	function saveGame(savefileId: number): /* DataManager.+Promise */ any;
 	function loadGame(savefileId: any): /* DataManager.+Promise */ any;
 	function makeSavename(savefileId: number): string;
 	function selectSavefileForNewGame(): void;
-	function makeSavefileInfo(): /* DataManager._globalInfo.<i> */ any;
+	function makeSavefileInfo(): SaveFileInfo;
 	function makeSaveContents(): DataManager.MakeSaveContentsRet;
 	function extractSaveContents(contents: any): void;
 	function correctDataErrors(): void;
@@ -207,9 +371,9 @@ declare namespace ConfigManager
 	function save(): void;
 	function isLoaded(): boolean;
 	function makeData(): ConfigManager.MakeDataRet;
-	function applyData(config: any): void;
-	function readFlag(config: any, name: string, defaultValue: boolean): boolean;
-	function readVolume(config: any, name: string): number;
+	function applyData(config: UserConfig): void;
+	function readFlag(config: UserConfig, name: string, defaultValue: boolean): boolean;
+	function readVolume(config: UserConfig, name: string): number;
 }
 
 declare interface StorageManager
@@ -321,7 +485,7 @@ declare namespace EffectManager
 {
 	export var _cache: /*no type*/{};
 	export var _errorUrls: Array<string>;
-	function load(filename: any): /* !this._cache.<i> */ any;
+	function load(filename: string): EffekseerEffect;
 	function startLoading(url: string): void;
 	function clear(): void;
 	function onLoad(): void;
@@ -354,39 +518,39 @@ declare namespace AudioManager
 	export var _staticBuffers: Array<WebAudio>;
 	export var _replayFadeTime: number;
 	export var _path: string;
-	function playBgm(bgm: AudioManager.PlayBgm0, pos: number): void;
-	function replayBgm(bgm: /* BattleManager._mapBgm */ any): void;
-	function isCurrentBgm(bgm: /* BattleManager._mapBgm */ any): /* !this._currentBgm */ any;
-	function updateBgmParameters(bgm: /* BattleManager._mapBgm */ any): void;
-	function updateCurrentBgm(bgm: /* BattleManager._mapBgm */ any, pos: number): void;
+	function playBgm(bgm: PhasableAudioSettings, pos: number): void;
+	function replayBgm(bgm: PhasableAudioSettings): void;
+	function isCurrentBgm(bgm: PhasableAudioSettings): boolean;
+	function updateBgmParameters(bgm: PannableAudioSettings): void;
+	function updateCurrentBgm(bgm: PhasableAudioSettings, pos: number): void;
 	function stopBgm(): void;
 	function fadeOutBgm(duration: number): void;
 	function fadeInBgm(duration: any): void;
 	function playBgs(bgs: AudioManager.PlayBgs0, pos: number): void;
-	function replayBgs(bgs: /* BattleManager._mapBgs */ any): void;
+	function replayBgs(bgs: AudioSettings): void;
 	function isCurrentBgs(bgs: /* BattleManager._mapBgs */ any): /* !this._currentBgs */ any;
 	function updateBgsParameters(bgs: /* BattleManager._mapBgs */ any): void;
-	function updateCurrentBgs(bgs: /* BattleManager._mapBgs */ any, pos: number): void;
+	function updateCurrentBgs(bgs: AudioSettings, pos: number): void;
 	function stopBgs(): void;
 	function fadeOutBgs(duration: number): void;
 	function fadeInBgs(duration: any): void;
-	function playMe(me: any): void;
-	function updateMeParameters(me: any): void;
+	function playMe(me: PannableAudioSettings): void;
+	function updateMeParameters(me: PannableAudioSettings): void;
 	function fadeOutMe(duration: number): void;
 	function stopMe(): void;
-	function playSe(se: any): void;
-	function updateSeParameters(buffer: WebAudio, se: any): void;
+	function playSe(se: PannableAudioSettings): void;
+	function updateSeParameters(buffer: WebAudio, se: PannableAudioSettings): void;
 	function cleanupSe(): void;
 	function stopSe(): void;
-	function playStaticSe(se: any): void;
-	function loadStaticSe(se: any): void;
-	function isStaticSe(se: any): boolean;
+	function playStaticSe(se: PannableAudioSettings): void;
+	function loadStaticSe(se: PannableAudioSettings): void;
+	function isStaticSe(se: PannableAudioSettings): boolean;
 	function stopAll(): void;
-	function saveBgm(): /* BattleManager._mapBgm */ any;
-	function saveBgs(): /* BattleManager._mapBgs */ any;
-	function makeEmptyAudioObject(): AudioManager.MakeEmptyAudioObjectRet;
+	function saveBgm(): PhasableAudioSettings;
+	function saveBgs(): AudioSettings;
+	function makeEmptyAudioObject(): AudioSettings;
 	function createBuffer(folder: string, name: string): WebAudio;
-	function updateBufferParameters(buffer: WebAudio, configVolume: number, audio: /* BattleManager._mapBgm */ any): void;
+	function updateBufferParameters(buffer: WebAudio, configVolume: number, audio: PannableAudioSettings): void;
 	function audioFileExt(): string;
 	function checkErrors(): void;
 	function throwLoadError(webAudio: WebAudio): void;
@@ -528,7 +692,7 @@ declare namespace SceneManager
 	function onBeforeSceneStart(): void;
 	function onSceneStart(): void;
 	function isSceneChanging(): boolean;
-	function isCurrentSceneBusy(): /* !this._scene */ any;
+	function isCurrentSceneBusy(): boolean;
 	function isNextScene(sceneClass: any): /* !this._nextScene */ any;
 	function isPreviousScene(sceneClass: (() => void) | (() => void)): boolean;
 	function goto(sceneClass: Scene_Base): void;
@@ -611,7 +775,7 @@ declare namespace BattleManager
 	function canEscape(): boolean;
 	function canLose(): /* !this._canLose */ any;
 	function isEscaped(): /* !this._escaped */ any;
-	function actor(): /* !this._currentActor */ any;
+	function actor(): Game_Actor;
 	function startBattle(): void;
 	function displayStartMessages(): void;
 	function startInput(): void;
